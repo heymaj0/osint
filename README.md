@@ -1,2 +1,2 @@
-# osint-
+# osint
 Investigación
