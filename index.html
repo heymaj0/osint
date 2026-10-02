@@ -4,12 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#020617">
-<meta name="description" content="HeyMajo: tecnología, OSINT, privacidad, UGC Tech y recursos digitales explicados sin vueltas.">
-<title>HeyMajo | Tecnología que se entiende</title>
+<title>ArtistCode | Orientación para tu investigación</title>
 <link rel="icon" href="logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#020617;
@@ -21,83 +20,138 @@
   --lime:#b9ef59;
   --white:#f8fafc;
   --paper:#f4f7f8;
-  --dark:#101820;
+  --text:#101820;
   --muted:#64748b;
-  --line:#dbe4e8;
-  --shadow:0 24px 70px rgba(2,6,23,.16);
-  --mono:"Space Mono",monospace;
-  --sans:"DM Sans",sans-serif
+  --line:#d9e4ea;
+  --shadow:0 22px 65px rgba(2,6,23,.18);
+  --sans:"DM Sans",system-ui,sans-serif;
+  --mono:"Space Mono",monospace
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;overflow-x:hidden;color:var(--dark);background:#fff;font-family:var(--sans)}
+body{margin:0;overflow-x:hidden;color:var(--text);background:#fff;font-family:var(--sans)}
 button,a{font:inherit}
-a{text-decoration:none;color:inherit}
 .wrap{width:min(1080px,calc(100% - 40px));margin:auto}
 
-/* HERO: misma estructura del segundo diseño, identidad HeyMajo */
-body main section#hm-inicio.hero{
+body main section#ac-inicio.hero{
   position:relative!important;
   display:block!important;
   height:fit-content!important;
   min-height:0!important;
-  padding:28px 0 38px!important;
+  block-size:fit-content!important;
+  min-block-size:0!important;
+  padding:28px 0 34px!important;
   margin:0!important;
   overflow:hidden;
   color:#fff;
   background:
-    radial-gradient(circle at 88% 14%,rgba(157,103,255,.24),transparent 28%),
+    radial-gradient(circle at 85% 15%,rgba(157,103,255,.22),transparent 26%),
     radial-gradient(circle at 12% 90%,rgba(25,211,243,.12),transparent 30%),
-    linear-gradient(135deg,var(--ink),#071425 58%,#0a2d40)
+    linear-gradient(135deg,var(--ink),var(--ink-soft) 58%,#0b2f43)
 }
 .hero:before{
-  content:"";position:absolute;inset:0;
+  content:"";
+  position:absolute;
+  inset:0;
   background-image:
     linear-gradient(rgba(25,211,243,.045) 1px,transparent 1px),
     linear-gradient(90deg,rgba(25,211,243,.045) 1px,transparent 1px);
   background-size:52px 52px;
-  mask-image:radial-gradient(circle at 50% 35%,#000,transparent 82%)
+  mask-image:radial-gradient(circle at 50% 35%,#000,transparent 80%)
 }
 .hero:after{
-  content:"";position:absolute;width:420px;height:420px;right:-180px;bottom:-230px;
-  border:80px solid rgba(25,211,243,.055);border-radius:50%
+  content:"";
+  position:absolute;
+  width:420px;
+  height:420px;
+  right:-180px;
+  bottom:-230px;
+  border:80px solid rgba(25,211,243,.055);
+  border-radius:50%
 }
 .nav,.hero-grid{position:relative;z-index:1}
 .nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
 .brand{display:flex;align-items:center;gap:10px;font:700 14px var(--mono);letter-spacing:-.02em}
-.brand img{width:28px;height:28px;object-fit:contain}
-.brand i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 15px rgba(185,239,89,.8)}
+.brand img{width:29px;height:29px;object-fit:contain}
+.brand span{color:#fff}
 .online{color:rgba(255,255,255,.66);font:700 10px var(--mono)}
 .online b{color:var(--lime)}
 .hero-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:42px;align-items:center}
-.intro small{display:inline-flex;align-items:center;gap:8px;color:var(--cyan);font:700 10px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.intro small{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:var(--cyan);
+  font:700 10px var(--mono);
+  letter-spacing:.12em;
+  text-transform:uppercase
+}
 .intro small:before{content:"";width:28px;height:1px;background:currentColor}
 .intro h1{margin:18px 0;font-size:clamp(44px,5.5vw,72px);line-height:.95;letter-spacing:-.055em}
-.intro h1 span{color:var(--cyan)}
-.intro p{max-width:490px;margin:0;color:#b8c4d2;font-size:15px;line-height:1.7}
-.trust{display:flex;gap:15px;flex-wrap:wrap;margin-top:24px;color:rgba(255,255,255,.72);font-size:10px;font-weight:700}
+.intro p{max-width:470px;margin:0;color:#b8c4d2;font-size:15px;line-height:1.7}
+.trust{display:flex;gap:15px;margin-top:24px;color:rgba(255,255,255,.7);font-size:10px;font-weight:700}
 .trust span{display:flex;gap:7px;align-items:center}
 .trust i{color:var(--lime);font-style:normal}
 
-/* CARD / ORIENTADOR */
-.quiz{position:relative;padding:25px;border:1px solid rgba(25,211,243,.32);border-radius:30px;background:rgba(255,255,255,.97);color:var(--dark);box-shadow:0 34px 90px rgba(0,0,0,.34);backdrop-filter:blur(14px)}
-.quiz:before{content:"";position:absolute;inset:9px;border:1px solid rgba(25,211,243,.08);border-radius:23px;pointer-events:none}
+/* TARJETA DEL ORIENTADOR */
+.quiz{
+  position:relative;
+  padding:25px;
+  border:1px solid rgba(25,211,243,.38);
+  border-radius:30px;
+  background:rgba(255,255,255,.97);
+  color:var(--text);
+  box-shadow:0 34px 90px rgba(0,0,0,.30);
+  backdrop-filter:blur(14px)
+}
+.quiz:before{
+  content:"";
+  position:absolute;
+  inset:9px;
+  border:1px solid rgba(25,211,243,.08);
+  border-radius:23px;
+  pointer-events:none
+}
 .quiz-head,.quiz-body{position:relative;z-index:1}
 .quiz-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:18px;border-bottom:1px solid var(--line)}
 .quiz-label{color:#087e96;font:700 9px var(--mono);letter-spacing:.13em;text-transform:uppercase}
 .progress{display:flex;gap:6px}
-.progress i{width:24px;height:3px;border-radius:3px;background:#dfe8ec}
+.progress i{width:24px;height:3px;border-radius:3px;background:#dbe7ec}
 .progress i.on{background:var(--lime)}
 .quiz-body{padding-top:20px}
 .screen{display:none;animation:enter .35s ease}
 .screen.active{display:block}
-.screen h2{margin:0 0 18px;font-size:clamp(21px,2.3vw,30px);line-height:1.14;letter-spacing:-.03em}
+.screen h2{margin:0 0 18px;font-size:clamp(21px,2.3vw,30px);line-height:1.14}
 .options{display:grid;gap:9px}
-.option{display:grid;grid-template-columns:38px 1fr 14px;gap:12px;align-items:center;width:100%;min-height:59px;padding:10px 13px;border:1px solid var(--line);border-radius:16px;background:#fbfdfe;color:var(--dark);text-align:left;cursor:pointer;transition:.2s}
-.option:hover{transform:translateX(4px);border-color:rgba(25,211,243,.65);background:#f3fdff}
-.option b{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:#e8fbff;color:#087e96;font:700 11px var(--mono)}
+.option{
+  display:grid;
+  grid-template-columns:38px 1fr 14px;
+  gap:12px;
+  align-items:center;
+  width:100%;
+  min-height:59px;
+  padding:10px 13px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:#f9fcfe;
+  color:var(--text);
+  text-align:left;
+  cursor:pointer;
+  transition:.2s
+}
+.option:hover{transform:translateX(4px);border-color:rgba(25,211,243,.7);background:#f1fcfe}
+.option b{
+  display:grid;
+  place-items:center;
+  width:34px;
+  height:34px;
+  border-radius:11px;
+  background:#e8fbff;
+  color:#087e96;
+  font:700 11px var(--mono)
+}
 .option:nth-child(2) b{background:#f1ebff;color:#7c3aed}
-.option:nth-child(3) b{background:#f2fadf;color:#688c18}
+.option:nth-child(3) b{background:#f2fadf;color:#6f8f1e}
 .option span{font-size:12px;font-weight:750;line-height:1.35}
 .option em{color:#8197a8;font-style:normal}
 .back{margin-top:14px;padding:0;border:0;background:none;color:#718698;font-size:10px;font-weight:800;cursor:pointer}
@@ -105,71 +159,101 @@ body main section#hm-inicio.hero{
 .result-code{color:#087e96;font:700 9px var(--mono);letter-spacing:.12em}
 .result h2{margin-top:10px}
 .result p{margin:0;color:var(--muted);font-size:12px;line-height:1.6}
-.result-tags{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0}
-.result-tags span{padding:7px 9px;border-radius:999px;background:#edf9fc;color:#087e96;font:700 9px var(--mono)}
-.actions{display:flex;gap:9px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 17px;border:1px solid transparent;border-radius:13px;background:var(--cyan);color:#02111b;text-decoration:none;font-size:10px;font-weight:900;cursor:pointer}
-.btn:hover{box-shadow:0 10px 28px rgba(25,211,243,.2)}
+.actions{display:flex;gap:9px;margin-top:16px}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  padding:0 17px;
+  border:1px solid transparent;
+  border-radius:13px;
+  background:var(--cyan);
+  color:#02111b;
+  text-decoration:none;
+  font-size:10px;
+  font-weight:900;
+  cursor:pointer
+}
+.btn:hover{box-shadow:0 10px 28px rgba(25,211,243,.22)}
 .btn.secondary{border-color:var(--line);background:#fff;color:#087e96}
 
-/* SECCIONES: misma composición del segundo */
+/* PROCESO */
 .section{padding:68px 0}
 .process{background:#fff}
 .faq{background:var(--paper)}
 .heading{text-align:center}
-.pill{display:inline-block;padding:7px 11px;border:1px solid rgba(25,211,243,.5);border-radius:999px;color:#087e96;font:700 9px var(--mono);text-transform:uppercase}
-.heading h2{max-width:720px;margin:14px auto 10px;font-size:clamp(34px,4.5vw,54px);line-height:1;letter-spacing:-.045em}
-.heading p{max-width:620px;margin:0 auto;color:var(--muted);font-size:14px}
+.pill{
+  display:inline-block;
+  padding:7px 11px;
+  border:1px solid rgba(25,211,243,.55);
+  border-radius:999px;
+  color:#087e96;
+  font:700 9px var(--mono);
+  text-transform:uppercase
+}
+.heading h2{max-width:700px;margin:14px auto 10px;font-size:clamp(34px,4.5vw,54px);line-height:1;letter-spacing:-.045em}
+.heading p{max-width:600px;margin:0 auto;color:var(--muted);font-size:14px}
 .steps{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:34px}
-.steps:before{content:"";position:absolute;left:7%;right:7%;top:25px;height:1px;background:#d5e3e8}
+.steps:before{content:"";position:absolute;left:7%;right:7%;top:25px;height:1px;background:#cfdee6}
 .step{position:relative;padding:0 10px;text-align:center}
-.step-num{position:relative;z-index:1;display:grid;place-items:center;width:50px;height:50px;margin:0 auto 17px;border:6px solid #fff;border-radius:50%;background:#e8fbff;color:#087e96;font:700 10px var(--mono)}
+.step-num{
+  position:relative;
+  z-index:1;
+  display:grid;
+  place-items:center;
+  width:50px;
+  height:50px;
+  margin:0 auto 17px;
+  border:6px solid #fff;
+  border-radius:50%;
+  background:#e8fbff;
+  color:#087e96;
+  font:700 10px var(--mono)
+}
 .step:nth-child(2) .step-num,.step:nth-child(5) .step-num{background:#f1ebff;color:#7c3aed}
-.step:nth-child(3) .step-num{background:#f2fadf;color:#688c18}
+.step:nth-child(3) .step-num{background:#f2fadf;color:#6f8f1e}
 .step h3{margin:0 0 7px;font-size:14px}
 .step p{margin:0;color:var(--muted);font-size:10px;line-height:1.55}
 
-/* FEATURE STRIP */
-.showcase{background:var(--ink);color:#fff}
-.showcase .heading p{color:#9fb0c0}
-.showcase .pill{color:var(--cyan)}
-.showcase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:34px}
-.showcase-card{position:relative;min-height:250px;padding:0;border:1px solid rgba(255,255,255,.11);border-radius:18px;background:linear-gradient(145deg,#071425,#0b1c30);overflow:hidden;transition:.25s}
-.showcase-card .card-image{width:100%;height:112px;object-fit:cover;display:block;filter:contrast(1.04) saturate(.95)}
-.showcase-card .card-body{padding:20px 24px 24px}
-.showcase-card:hover{transform:translateY(-5px);border-color:rgba(25,211,243,.5)}
-.showcase-card:after{content:"";position:absolute;width:120px;height:120px;right:-38px;bottom:-40px;border-radius:50%;background:var(--accent);opacity:.15}
-.showcase-card:nth-child(1){--accent:var(--cyan)}
-.showcase-card:nth-child(2){--accent:var(--violet)}
-.showcase-card:nth-child(3){--accent:var(--lime)}
-.showcase-card small{color:var(--cyan);font:700 9px var(--mono);text-transform:uppercase;letter-spacing:.1em}
-.showcase-card h3{margin:10px 0 8px;font-size:20px}
-.showcase-card p{margin:0;color:#9fb0c0;font-size:12px;line-height:1.55}
-.showcase-card b{position:absolute;right:20px;bottom:18px;color:var(--accent)}
-
 /* FAQ */
 .faq-list{display:block;column-count:2;column-gap:10px;max-width:900px;margin:34px auto 0}
-.faq-list details{display:inline-block;width:100%;margin:0 0 10px;overflow:hidden;border:1px solid var(--line);border-radius:17px;background:#fff;break-inside:avoid;vertical-align:top}
+.faq-list details{
+  display:inline-block;
+  width:100%;
+  margin:0 0 10px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:17px;
+  background:#fff;
+  break-inside:avoid;
+  vertical-align:top
+}
 .faq-list summary{position:relative;padding:17px 48px 17px 18px;list-style:none;cursor:pointer;font-size:12px;font-weight:800}
 .faq-list summary::-webkit-details-marker{display:none}
 .faq-list summary:after{content:"+";position:absolute;right:18px;top:13px;color:#087e96;font-size:21px}
 .faq-list details[open] summary:after{content:"−"}
 .faq-list p{margin:0;padding:0 18px 18px;color:var(--muted);font-size:11px;line-height:1.65}
-.contact-line{max-width:780px;margin:24px auto 0;color:#718698;font-size:10px;line-height:1.6;text-align:center}
-.contact-line a{color:#087e96;font-weight:800}
+.legal{max-width:780px;margin:24px auto 0;color:#718698;font-size:9px;line-height:1.6;text-align:center}
 
-/* FOOTER */
-footer{padding:20px 0;background:var(--ink);color:#8192a4;font-size:9px;text-align:center;border-top:1px solid rgba(255,255,255,.08)}
+footer{
+  padding:18px 0;
+  background:var(--ink);
+  color:rgba(255,255,255,.58);
+  font-size:9px;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,.08)
+}
 .reveal{opacity:0;transform:translateY(22px);transition:.7s}
 .reveal.visible{opacity:1;transform:none}
 @keyframes enter{from{opacity:0;transform:translateY(10px)}}
 
 @media(max-width:820px){
-  body main section#hm-inicio.hero{padding:26px 0 34px!important}
+  body main section#ac-inicio.hero{padding:26px 0 34px!important}
   .hero-grid{grid-template-columns:1fr;gap:27px}
   .intro{text-align:center}
   .intro p{margin:auto}
-  .trust{justify-content:center}
+  .trust{justify-content:center;flex-wrap:wrap}
   .quiz{max-width:620px;margin:auto}
   .section{padding:56px 0}
   .steps{grid-template-columns:1fr;gap:0;max-width:580px;margin-inline:auto}
@@ -177,12 +261,11 @@ footer{padding:20px 0;background:var(--ink);color:#8192a4;font-size:9px;text-ali
   .step{display:grid;grid-template-columns:50px 1fr;gap:14px;padding:10px 0;text-align:left}
   .step-num{grid-row:span 2;margin:0;border-width:5px}
   .step h3{align-self:end}
-  .showcase-grid{grid-template-columns:1fr}
   .faq-list{column-count:1}
 }
 @media(max-width:480px){
   .wrap{width:min(100% - 24px,1080px)}
-  body main section#hm-inicio.hero{padding:20px 0 28px!important}
+  body main section#ac-inicio.hero{padding:20px 0 28px!important}
   .online span{display:none}
   .intro h1{font-size:39px}
   .intro p{font-size:13px}
@@ -206,51 +289,49 @@ footer{padding:20px 0;background:var(--ink);color:#8192a4;font-size:9px;text-ali
 </head>
 <body>
 <main>
-<section class="hero" id="hm-inicio">
+
+<section class="hero" id="ac-inicio">
   <div class="wrap">
     <nav class="nav">
-      <a class="brand" href="#hm-inicio">
-        <img src="logo.png" alt="">
-        <span>heymaj0</span>
-      </a>
-      <div class="online"><span>TECH · OSINT · PRIVACIDAD · </span><b>● ONLINE</b></div>
+      <div class="brand">
+        <img src="logo.png" alt="Logo">
+        <span>ARTISTCODE</span>
+      </div>
+      <div class="online"><span>ORIENTADOR DE CASOS · </span><b>● EN LÍNEA</b></div>
     </nav>
 
     <div class="hero-grid">
       <header class="intro">
-        <small>Creadora + olvidadiza + tech lover</small>
-        <h1>Tech, internet y un poquito de <span>mi caos.</span></h1>
-        <p>Entender el mundo digital no debería sentirse complicado. Aquí hablamos de OSINT, privacidad, herramientas, contenido tech y aprendizaje sin entrar en pánico.</p>
+        <small>Investigación digital confidencial</small>
+        <h1>Investigamos por ti, lo que necesitas descubrir</h1>
+        <p>Responde dos preguntas sencillas. Te indicaremos qué tipo de investigación necesitas y te conectaremos con el equipo adecuado.</p>
         <div class="trust">
-          <span><i>✓</i> OSINT + privacidad</span>
-          <span><i>✓</i> UGC Tech</span>
-          <span><i>✓</i> COO de @ArtistCod3</span>
+          <span><i>✓</i> Metodología legal</span>
+          <span><i>✓</i> Evidencia documentada</span>
+          <span><i>✓</i> Atención confidencial</span>
         </div>
       </header>
 
-      <section class="quiz" aria-label="Explorador HeyMajo">
-        <div style="display:grid;grid-template-columns:1.15fr .85fr;gap:8px;margin-bottom:18px;">
-          <img src="1.jpeg" alt="Contenido visual de HeyMajo sobre OSINT" style="width:100%;height:105px;object-fit:cover;border-radius:15px;">
-          <img src="2.jpeg" alt="Contenido visual de HeyMajo sobre privacidad digital" style="width:100%;height:105px;object-fit:cover;border-radius:15px;">
-        </div>
+      <section class="quiz" aria-label="Orientador de casos">
         <div class="quiz-head">
           <span class="quiz-label" id="quizLabel">Pregunta 1 de 2</span>
           <div class="progress"><i class="on"></i><i></i><i></i></div>
         </div>
+
         <div class="quiz-body">
           <div class="screen active" data-screen="1">
-            <h2>¿Qué estás buscando hoy?</h2>
+            <h2>¿Qué está ocurriendo principalmente?</h2>
             <div class="options">
-              <button class="option" data-route="contenido"><b>A</b><span>Quiero ver contenido y videos tech</span><em>→</em></button>
-              <button class="option" data-route="cursos"><b>B</b><span>Quiero aprender ciberseguridad u OSINT</span><em>→</em></button>
-              <button class="option" data-route="recursos"><b>C</b><span>Busco herramientas y recursos gratuitos</span><em>→</em></button>
-              <button class="option" data-route="ugc"><b>D</b><span>Tengo una marca y quiero contenido UGC Tech</span><em>→</em></button>
-              <button class="option" data-route="majo"><b>E</b><span>Solo quiero conocer más de HeyMajo</span><em>→</em></button>
+              <button class="option" data-route="fraude"><b>A</b><span>Me están amenazando, extorsionando o estafaron</span><em>→</em></button>
+              <button class="option" data-route="identidad"><b>B</b><span>Usan mi identidad o publican información para dañarme</span><em>→</em></button>
+              <button class="option" data-route="infidelidad"><b>C</b><span>Creo que me están siendo infiel</span><em>→</em></button>
+              <button class="option" data-route="personal"><b>D</b><span>Necesito verificar a una persona o una situación</span><em>→</em></button>
+              <button class="option" data-route="duda"><b>E</b><span>No estoy seguro; necesito orientación</span><em>→</em></button>
             </div>
           </div>
 
           <div class="screen" data-screen="2">
-            <h2>¿Qué te interesa más?</h2>
+            <h2>¿Cuál opción describe mejor lo que necesitas?</h2>
             <div class="options" id="followOptions"></div>
             <button class="back" type="button">← Volver</button>
           </div>
@@ -259,72 +340,33 @@ footer{padding:20px 0;background:var(--ink);color:#8192a4;font-size:9px;text-ali
             <span class="result-code" id="resultCode"></span>
             <h2 id="resultTitle"></h2>
             <p id="resultCopy"></p>
-            <div class="result-tags" id="resultTags"></div>
             <div class="actions">
-              <a class="btn" id="resultLink" href="#">Ir ahora →</a>
-              <button class="btn secondary" id="restart" type="button">Elegir otra ruta</button>
+              <a class="btn" id="resultWa" href="#">Hablar por WhatsApp →</a>
+              <button class="btn secondary" id="restart" type="button">Reiniciar</button>
             </div>
           </div>
 
-          <p class="safe">Sé cómo te rastrean, pero se me olvida tomar agua.</p>
+          <p class="safe">🔒 No envíes contraseñas, datos bancarios ni material íntimo.</p>
         </div>
       </section>
     </div>
   </div>
 </section>
 
-<section class="section process" id="sobre-mi">
+<section class="section process" id="proceso">
   <div class="wrap">
     <header class="heading reveal">
-      <span class="pill">Quién soy</span>
-      <h2>La tecnología también puede sentirse cercana.</h2>
-      <p>Creo contenido educativo y UGC para explicar tecnología, internet y seguridad digital de forma clara, confiable y humana.</p>
+      <span class="pill">Cómo funciona</span>
+      <h2>Después de escribirnos, esto es lo que pasa</h2>
+      <p>Primero claridad; después, método y evidencia.</p>
     </header>
-    <div class="steps reveal">
-      <article class="step"><b class="step-num">01</b><h3>OSINT</h3><p>Investigación digital y fuentes abiertas.</p></article>
-      <article class="step"><b class="step-num">02</b><h3>Privacidad</h3><p>Entender exposición y proteger tu vida digital.</p></article>
-      <article class="step"><b class="step-num">03</b><h3>UGC Tech</h3><p>Contenido que demuestra, explica y conecta.</p></article>
-      <article class="step"><b class="step-num">04</b><h3>Educación</h3><p>Aprendizaje práctico y sin tecnicismos.</p></article>
-      <article class="step"><b class="step-num">05</b><h3>ArtistCod3</h3><p>Estrategia y formación desde mi rol como COO.</p></article>
-    </div>
-  </div>
-</section>
 
-<section class="section showcase" id="destacados">
-  <div class="wrap">
-    <header class="heading reveal">
-      <span class="pill">Empieza por aquí</span>
-      <h2>Tres caminos, una misma obsesión: hacer el mundo digital más entendible.</h2>
-      <p>Contenido, formación y herramientas para aprender, investigar y crear con más criterio.</p>
-    </header>
-    <div class="showcase-grid reveal">
-      <a class="showcase-card" href="https://www.tiktok.com/@hey_maj0" target="_blank" rel="noreferrer">
-        <img class="card-image" src="1.jpeg" alt="Contenido de HeyMajo sobre OSINT">
-        <div class="card-body">
-          <small>Contenido</small>
-          <h3>Videos y tutoriales</h3>
-          <p>Tech, privacidad, herramientas, OSINT y productividad en formatos fáciles de consumir.</p>
-        </div>
-        <b>↗</b>
-      </a>
-      <a class="showcase-card" href="https://wa.me/573181388818?text=Hola%20Majo%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20cursos%20de%20ArtistCod3" target="_blank" rel="noreferrer">
-        <img class="card-image" src="setup3.jpg" alt="Setup de creación de contenido de HeyMajo">
-        <div class="card-body">
-          <small>Formación</small>
-          <h3>Cursos con @ArtistCod3</h3>
-          <p>Ciberseguridad, OSINT y privacidad con enfoque práctico y acompañado.</p>
-        </div>
-        <b>↗</b>
-      </a>
-      <a class="showcase-card" href="https://github.com/sherlock-project/sherlock" target="_blank" rel="noreferrer">
-        <img class="card-image" src="setup2.jpg" alt="Estudio y herramientas de HeyMajo">
-        <div class="card-body">
-          <small>Recursos</small>
-          <h3>Caja de herramientas</h3>
-          <p>Selección de utilidades para investigar, organizarte y proteger mejor tu vida digital.</p>
-        </div>
-        <b>↗</b>
-      </a>
+    <div class="steps reveal">
+      <article class="step"><b class="step-num">01</b><h3>Nos cuentas</h3><p>Contexto breve y evidencia disponible.</p></article>
+      <article class="step"><b class="step-num">02</b><h3>Evaluamos</h3><p>Viabilidad legal y técnica.</p></article>
+      <article class="step"><b class="step-num">03</b><h3>Peritaje</h3><p>Realizamos el análisis inicial del caso.</p></article>
+      <article class="step"><b class="step-num">04</b><h3>Definimos</h3><p>Definimos el alcance, los entregables y realizamos la cotización del servicio.</p></article>
+      <article class="step"><b class="step-num">05</b><h3>Investigamos</h3><p>Hallazgos documentados.</p></article>
     </div>
   </div>
 </section>
@@ -333,165 +375,168 @@ footer{padding:20px 0;background:var(--ink);color:#8192a4;font-size:9px;text-ali
   <div class="wrap">
     <header class="heading reveal">
       <span class="pill">Preguntas frecuentes</span>
-      <h2>Lo que probablemente quieres saber de HeyMajo</h2>
-      <p>Sin vueltas, como debería explicarse la tecnología.</p>
+      <h2>Lo que necesitas saber antes de empezar</h2>
+      <p>Respuestas directas sobre el proceso, alcance y límites.</p>
     </header>
 
     <div class="faq-list reveal">
       <details>
-        <summary>¿Qué tipo de contenido publica HeyMajo?</summary>
-        <p>Contenido sobre tecnología, OSINT, privacidad digital, herramientas, productividad y vida digital, explicado de forma cercana y entendible.</p>
+        <summary>Creo que me están siendo infiel, ¿pueden investigarlo?</summary>
+        <p>Sí, podemos evaluar alternativas legales para confirmar o descartar una posible infidelidad mediante análisis de información y señales legítimamente disponibles. No hackeamos, no vulneramos cuentas o dispositivos y no interceptamos comunicaciones.</p>
       </details>
+
       <details>
-        <summary>¿Majo crea contenido para marcas?</summary>
-        <p>Sí. Realiza UGC Tech, demostraciones de producto, reviews, videos verticales, tutoriales y piezas educativas para marcas tecnológicas.</p>
+        <summary>¿Qué incluye el peritaje?</summary>
+        <p>La revisión inicial permite determinar la viabilidad, posibles líneas de análisis y el alcance recomendado para el caso.</p>
       </details>
+
       <details>
-        <summary>¿Dónde puedo aprender ciberseguridad y OSINT?</summary>
-        <p>A través de @ArtistCod3, donde Majo participa como COO y trabaja en experiencias de formación prácticas sobre ciberseguridad, OSINT y privacidad.</p>
+        <summary>¿Cómo se define el servicio?</summary>
+        <p>Después del peritaje explicamos el alcance, los entregables y presentamos la cotización correspondiente.</p>
       </details>
+
       <details>
-        <summary>¿Hay recursos gratuitos?</summary>
-        <p>Sí. HeyMajo comparte herramientas y recursos útiles para investigar, aprender y proteger tu información digital.</p>
+        <summary>¿Pueden garantizar un resultado?</summary>
+        <p>No prometemos resultados que la evidencia no permita. Sí garantizamos metodología y documentación.</p>
       </details>
+
       <details>
-        <summary>¿Dónde puedo ver sus videos?</summary>
-        <p>Puedes encontrar contenido en TikTok, Instagram y YouTube, con tutoriales, recomendaciones, demostraciones y contenido educativo.</p>
+        <summary>¿Mi caso se maneja de forma confidencial?</summary>
+        <p>Sí. Solicitamos únicamente la información necesaria y tratamos cada consulta con discreción.</p>
       </details>
+
       <details>
-        <summary>¿Cómo puedo contactar para una colaboración?</summary>
-        <p>Puedes escribir a heymajocontacto@gmail.com para propuestas de contenido, UGC Tech o colaboraciones.</p>
+        <summary>¿Trabajan casos internacionales?</summary>
+        <p>Sí, cuando pueden abordarse mediante fuentes abiertas y análisis digital permitido.</p>
+      </details>
+
+      <details>
+        <summary>¿Realizan hackeo o acceso a cuentas?</summary>
+        <p>No. No accedemos sin autorización ni interceptamos comunicaciones. Trabajamos legalmente.</p>
       </details>
     </div>
 
-    <p class="contact-line">Contacto: <a href="mailto:heymajocontacto@gmail.com">heymajocontacto@gmail.com</a> · TikTok @hey_maj0 · Instagram @heymaj0 · YouTube @Hey_Majo</p>
+    <p class="legal">Si existe peligro inmediato o una amenaza contra tu integridad, contacta primero a las autoridades de emergencia de tu país. Este servicio no sustituye atención policial, jurídica o psicológica.</p>
   </div>
 </section>
+
 </main>
 
-<footer>© <span id="year"></span> HeyMajo · Recuerda tomar awita</footer>
+<footer>© ArtistCode · Investigación digital documentada y responsable</footer>
 
 <script>
 (() => {
   const routes = {
-    contenido:{
-      title:'Contenido y videos HeyMajo',
-      code:'HM-01',
-      copy:'Tutoriales, recomendaciones, herramientas y explicaciones tech para entender mejor el mundo digital sin complicarlo.',
-      tags:['TikTok','Instagram','YouTube'],
-      options:['Quiero tutoriales y herramientas','Quiero ver contenido sobre privacidad y OSINT','Quiero contenido tech más general'],
-      links:['https://www.tiktok.com/@hey_maj0','https://www.youtube.com/@Hey_Majo','https://www.instagram.com/heymaj0/']
-    },
-    cursos:{
-      title:'Formación con @ArtistCod3',
-      code:'HM-02',
-      copy:'Rutas de aprendizaje sobre ciberseguridad, OSINT y privacidad digital con enfoque práctico.',
-      tags:['Ciberseguridad','OSINT','Privacidad'],
-      options:['Quiero empezar desde cero','Me interesa OSINT aplicado','Quiero aprender privacidad y protección'],
-      links:[
-        'https://wa.me/573181388818?text=Hola%20Majo%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20cursos%20de%20ArtistCod3',
-        'https://wa.me/573181388818?text=Hola%20Majo%2C%20me%20interesa%20OSINT%20aplicado',
-        'https://wa.me/573181388818?text=Hola%20Majo%2C%20me%20interesa%20privacidad%20digital'
+    fraude:{
+      title:'Estafa, chantaje o extorsión',
+      code:'AC-01',
+      copy:'Revisaremos amenazas, contactos, perfiles, comprobantes y señales digitales para definir una ruta documentada.',
+      options:[
+        'Me están extorsionando o chantajeando',
+        'Perdí dinero en una estafa',
+        'Necesito identificar señales o responsables'
       ]
     },
-    recursos:{
-      title:'Recursos útiles, sin vueltas',
-      code:'HM-03',
-      copy:'Herramientas para investigar, revisar exposición digital y trabajar con más criterio técnico.',
-      tags:['Sherlock','Holehe','Kali Linux'],
-      options:['Quiero herramientas OSINT','Quiero revisar privacidad y filtraciones','Quiero sistemas para laboratorio'],
-      links:[
-        'https://github.com/sherlock-project/sherlock',
-        'https://monitor.firefox.com/',
-        'https://www.kali.org/'
+    identidad:{
+      title:'Suplantación o difamación',
+      code:'AC-02',
+      copy:'Analizaremos cuentas, publicaciones, imágenes, enlaces y patrones públicos para organizar evidencia.',
+      options:[
+        'Crearon una cuenta usando mi identidad',
+        'Publican información para dañarme',
+        'Necesito documentar perfiles o publicaciones'
       ]
     },
-    ugc:{
-      title:'UGC Tech para marcas',
-      code:'HM-04',
-      copy:'Contenido vertical, demostraciones, reviews, tutoriales y piezas educativas para marcas que quieren explicar mejor su producto.',
-      tags:['Reels','TikTok','Reviews'],
-      options:['Quiero una demostración de producto','Quiero contenido educativo para mi marca','Quiero cotizar una colaboración'],
-      links:[
-        'mailto:heymajocontacto@gmail.com?subject=UGC%20Tech%20-%20Demostraci%C3%B3n%20de%20producto',
-        'mailto:heymajocontacto@gmail.com?subject=UGC%20Tech%20-%20Contenido%20educativo',
-        'mailto:heymajocontacto@gmail.com?subject=Cotizar%20contenido%20UGC%20Tech'
+    infidelidad:{
+      title:'Investigación por posible infidelidad',
+      code:'AC-03',
+      copy:'Buscaremos alternativas legales y señales legítimamente disponibles para ayudar a confirmar o descartar una posible infidelidad. No hackeamos ni vulneramos cuentas o dispositivos.',
+      options:[
+        'He notado cambios y quiero confirmar o descartar mis sospechas',
+        'Tengo información o perfiles que deseo verificar',
+        'Necesito conocer el alcance de la investigación'
       ]
     },
-    majo:{
-      title:'Conoce más de HeyMajo',
-      code:'HM-00',
-      copy:'Creadora, tech lover, COO de @ArtistCod3 y fan de explicar internet de una forma más humana.',
-      tags:['Tech','COO','Creadora'],
-      options:['Quiero ver sus redes','Quiero conocer su trabajo profesional','Quiero escribirle directamente'],
-      links:[
-        'https://www.instagram.com/heymaj0/',
-        'https://www.linkedin.com/in/mariaartistcode',
-        'mailto:heymajocontacto@gmail.com'
+    personal:{
+      title:'Investigación personal de alto alcance',
+      code:'AC-04',
+      copy:'Evaluaremos qué puede verificarse legalmente y definiremos un alcance claro antes de comenzar.',
+      options:[
+        'Necesito investigar antecedentes o coherencia',
+        'Quiero verificar la identidad de una persona',
+        'Busco una investigación de mayor alcance'
+      ]
+    },
+    duda:{
+      title:'Orientación inicial de caso',
+      code:'AC-00',
+      copy:'Un especialista revisará tu contexto para clasificar el caso y explicarte el procedimiento.',
+      options:[
+        'Tengo evidencia pero no sé qué significa',
+        'Mi situación combina varios problemas',
+        'Prefiero explicarlo directamente'
       ]
     }
   };
 
-  let chosen, chosenAnswer, chosenLink;
-  const screens = [...document.querySelectorAll('.screen')];
-  const dots = [...document.querySelectorAll('.progress i')];
-  const label = document.querySelector('#quizLabel');
+  const phones=['573045611432','573128401093'];
+  let chosen,chosenPhone,chosenAnswer;
+
+  const screens=[...document.querySelectorAll('.screen')];
+  const dots=[...document.querySelectorAll('.progress i')];
+  const label=document.querySelector('#quizLabel');
 
   function show(n){
-    screens.forEach(x => x.classList.toggle('active', +x.dataset.screen === n));
-    dots.forEach((x,i) => x.classList.toggle('on', i < n));
-    label.textContent = n === 3 ? 'Ruta recomendada' : `Pregunta ${n} de 2`;
+    screens.forEach(x=>x.classList.toggle('active',+x.dataset.screen===n));
+    dots.forEach((x,i)=>x.classList.toggle('on',i<n));
+    label.textContent=n===3?'Ruta recomendada':`Pregunta ${n} de 2`;
   }
 
-  document.querySelectorAll('[data-route]').forEach(btn => btn.addEventListener('click', () => {
-    chosen = routes[btn.dataset.route];
-    const box = document.querySelector('#followOptions');
-    box.innerHTML = chosen.options.map((x,i) =>
-      `<button class="option final-option" data-index="${i}" data-answer="${x}">
-        <b>${String.fromCharCode(65+i)}</b><span>${x}</span><em>→</em>
+  document.querySelectorAll('[data-route]').forEach(btn=>btn.addEventListener('click',()=>{
+    chosen=routes[btn.dataset.route];
+    const start=(btn.dataset.route==='identidad'||btn.dataset.route==='duda')?1:0;
+    const box=document.querySelector('#followOptions');
+
+    box.innerHTML=chosen.options.map((x,i)=>
+      `<button class="option final-option" data-phone="${phones[(i+start)%2]}" data-answer="${x}">
+        <b>${String.fromCharCode(65+i)}</b>
+        <span>${x}</span>
+        <em>→</em>
       </button>`
     ).join('');
 
-    box.querySelectorAll('.final-option').forEach(x => x.addEventListener('click', () => {
-      const i = +x.dataset.index;
-      chosenAnswer = x.dataset.answer;
-      chosenLink = chosen.links[i];
+    box.querySelectorAll('.final-option').forEach(x=>x.addEventListener('click',()=>{
+      chosenPhone=x.dataset.phone;
+      chosenAnswer=x.dataset.answer;
       result();
     }));
+
     show(2);
   }));
 
   function result(){
-    document.querySelector('#resultCode').textContent = `RUTA ${chosen.code}`;
-    document.querySelector('#resultTitle').textContent = chosen.title;
-    document.querySelector('#resultCopy').textContent = chosen.copy;
-    document.querySelector('#resultTags').innerHTML = chosen.tags.map(x => `<span>${x}</span>`).join('');
+    document.querySelector('#resultCode').textContent=`RUTA ${chosen.code}`;
+    document.querySelector('#resultTitle').textContent=chosen.title;
+    document.querySelector('#resultCopy').textContent=chosen.copy;
 
-    const link = document.querySelector('#resultLink');
-    link.href = chosenLink;
-    if(chosenLink.startsWith('http')){
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-    } else {
-      link.removeAttribute('target');
-      link.removeAttribute('rel');
-    }
+    const msg=`Hola ArtistCode. El orientador me recomendó: ${chosen.title}. Opción elegida: ${chosenAnswer}. Quiero explicar mi caso y conocer el procedimiento.`;
+    const link=document.querySelector('#resultWa');
+
+    link.href=`https://wa.me/${chosenPhone}?text=${encodeURIComponent(msg)}`;
+    link.target='_blank';
+    link.rel='noopener';
+
     show(3);
   }
 
-  document.querySelector('.back').addEventListener('click', () => show(1));
-  document.querySelector('#restart').addEventListener('click', () => show(1));
+  document.querySelector('.back').addEventListener('click',()=>show(1));
+  document.querySelector('#restart').addEventListener('click',()=>show(1));
 
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if(e.isIntersecting){
-        e.target.classList.add('visible');
-        obs.unobserve(e.target);
-      }
-    });
-  }, {threshold:.15});
-  document.querySelectorAll('.reveal').forEach(x => obs.observe(x));
-  document.querySelector('#year').textContent = new Date().getFullYear();
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting)e.target.classList.add('visible');
+  }),{threshold:.15});
+
+  document.querySelectorAll('.reveal').forEach(x=>obs.observe(x));
 })();
 </script>
 </body>
