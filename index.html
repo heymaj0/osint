@@ -134,7 +134,9 @@ body main section#hm-inicio.hero{
 .showcase .heading p{color:#9fb0c0}
 .showcase .pill{color:var(--cyan)}
 .showcase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:34px}
-.showcase-card{position:relative;min-height:190px;padding:24px;border:1px solid rgba(255,255,255,.11);border-radius:18px;background:linear-gradient(145deg,#071425,#0b1c30);overflow:hidden;transition:.25s}
+.showcase-card{position:relative;min-height:250px;padding:0;border:1px solid rgba(255,255,255,.11);border-radius:18px;background:linear-gradient(145deg,#071425,#0b1c30);overflow:hidden;transition:.25s}
+.showcase-card .card-image{width:100%;height:112px;object-fit:cover;display:block;filter:contrast(1.04) saturate(.95)}
+.showcase-card .card-body{padding:20px 24px 24px}
 .showcase-card:hover{transform:translateY(-5px);border-color:rgba(25,211,243,.5)}
 .showcase-card:after{content:"";position:absolute;width:120px;height:120px;right:-38px;bottom:-40px;border-radius:50%;background:var(--accent);opacity:.15}
 .showcase-card:nth-child(1){--accent:var(--cyan)}
@@ -227,6 +229,10 @@ footer{padding:20px 0;background:var(--ink);color:#8192a4;font-size:9px;text-ali
       </header>
 
       <section class="quiz" aria-label="Explorador HeyMajo">
+        <div style="display:grid;grid-template-columns:1.15fr .85fr;gap:8px;margin-bottom:18px;">
+          <img src="1.jpeg" alt="Contenido visual de HeyMajo sobre OSINT" style="width:100%;height:105px;object-fit:cover;border-radius:15px;">
+          <img src="2.jpeg" alt="Contenido visual de HeyMajo sobre privacidad digital" style="width:100%;height:105px;object-fit:cover;border-radius:15px;">
+        </div>
         <div class="quiz-head">
           <span class="quiz-label" id="quizLabel">Pregunta 1 de 2</span>
           <div class="progress"><i class="on"></i><i></i><i></i></div>
@@ -293,21 +299,30 @@ footer{padding:20px 0;background:var(--ink);color:#8192a4;font-size:9px;text-ali
     </header>
     <div class="showcase-grid reveal">
       <a class="showcase-card" href="https://www.tiktok.com/@hey_maj0" target="_blank" rel="noreferrer">
-        <small>Contenido</small>
-        <h3>Videos y tutoriales</h3>
-        <p>Tech, privacidad, herramientas, OSINT y productividad en formatos fáciles de consumir.</p>
+        <img class="card-image" src="1.jpeg" alt="Contenido de HeyMajo sobre OSINT">
+        <div class="card-body">
+          <small>Contenido</small>
+          <h3>Videos y tutoriales</h3>
+          <p>Tech, privacidad, herramientas, OSINT y productividad en formatos fáciles de consumir.</p>
+        </div>
         <b>↗</b>
       </a>
       <a class="showcase-card" href="https://wa.me/573181388818?text=Hola%20Majo%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20cursos%20de%20ArtistCod3" target="_blank" rel="noreferrer">
-        <small>Formación</small>
-        <h3>Cursos con @ArtistCod3</h3>
-        <p>Ciberseguridad, OSINT y privacidad con enfoque práctico y acompañado.</p>
+        <img class="card-image" src="setup3.jpg" alt="Setup de creación de contenido de HeyMajo">
+        <div class="card-body">
+          <small>Formación</small>
+          <h3>Cursos con @ArtistCod3</h3>
+          <p>Ciberseguridad, OSINT y privacidad con enfoque práctico y acompañado.</p>
+        </div>
         <b>↗</b>
       </a>
       <a class="showcase-card" href="https://github.com/sherlock-project/sherlock" target="_blank" rel="noreferrer">
-        <small>Recursos</small>
-        <h3>Caja de herramientas</h3>
-        <p>Selección de utilidades para investigar, organizarte y proteger mejor tu vida digital.</p>
+        <img class="card-image" src="setup2.jpg" alt="Estudio y herramientas de HeyMajo">
+        <div class="card-body">
+          <small>Recursos</small>
+          <h3>Caja de herramientas</h3>
+          <p>Selección de utilidades para investigar, organizarte y proteger mejor tu vida digital.</p>
+        </div>
         <b>↗</b>
       </a>
     </div>
